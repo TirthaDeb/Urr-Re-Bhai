@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tota Urr</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgm" src="./Public/Background song NEELE NEELE AMBAR PAR - Narendra Modi (Tota Urr Game).mp3" preload="auto" loop></audio>
+    <audio id="gameOverMusic" src="./Public/WhatsApp Audio 2025-11-07 at 04.26.02_80555e58.mp3"></audio>
+
+    <div id="modalOverlay">
+        <div id="modalBox">
+            <h2 id="modalTitle">Title</h2>
+            <p id="modalText">Content goes here...</p>
+            <button id="closeModalBtn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <div id="lobby">
+        <h1>Shuv Kaam Me Der Kesi?</h1>
+        <h2>To chaliye game suru kerte hei</h2>
+
+        <button id="startButton" onclick="startGame()">Start Game</button>
+        
+        <div class="button-group">
+            <button class="sub-btn" onclick="showHighScore()">Highest Score</button>
+            <button class="sub-btn" onclick="showHelp()">Help</button>
+            <button class="sub-btn" onclick="showAbout()">About</button>
+        </div>
+
+        <div id="credit">Game made by TIRTHA</div>
+    </div>
+
+    <h1 id="title"></h1>
+    <canvas id="gameCanvas" width="400" height="500"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
