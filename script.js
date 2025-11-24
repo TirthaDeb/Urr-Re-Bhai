@@ -14,10 +14,10 @@ const pipeWidth = 60;
 let highScores = JSON.parse(localStorage.getItem("totaHighScores")) || [];
 
 const totaImg = new Image();
-totaImg.src = "./public/Sinchan face.png"; // sinchan bird
+totaImg.src = "./Public/Sinchan face.png"; // sinchan bird
 
 const pipeImg = new Image();
-pipeImg.src = "./public/pipe photo chatgpt.png"; // your cartoon pipe image file
+pipeImg.src = "./Public/pipe photo chatgpt.png"; // your cartoon pipe image file
 
 // --- MENU BUTTON FUNCTIONS ---
 
@@ -278,6 +278,7 @@ function startGame() {
 
   resetGame();
 }
+
 
 
 
