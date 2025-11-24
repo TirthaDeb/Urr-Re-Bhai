@@ -14,10 +14,54 @@ const pipeWidth = 60;
 let highScores = JSON.parse(localStorage.getItem("totaHighScores")) || [];
 
 const totaImg = new Image();
-totaImg.src = "./Public/Sinchan face.png"; // Doraemon bird
+totaImg.src = "./public/Sinchan face.png"; // sinchan bird
 
 const pipeImg = new Image();
-pipeImg.src = "./Public/pipe photo chatgpt.png"; // your cartoon pipe image file
+pipeImg.src = "./public/pipe photo chatgpt.png"; // your cartoon pipe image file
+
+// --- MENU BUTTON FUNCTIONS ---
+
+function showHighScore() {
+  const modal = document.getElementById('modalOverlay');
+  const title = document.getElementById('modalTitle');
+  const text = document.getElementById('modalText');
+  
+  // Get the highest score (first element since we sort descending)
+  let bestScore = highScores.length > 0 ? highScores[0] : 0;
+
+  title.innerText = "🏆 Highest Score";
+  text.innerText = "Tera abhi tak ka best score hei: " + bestScore;
+  
+  modal.style.display = 'flex';
+}
+
+function showHelp() {
+  const modal = document.getElementById('modalOverlay');
+  const title = document.getElementById('modalTitle');
+  const text = document.getElementById('modalText');
+
+  title.innerText = "Help";
+  text.innerHTML = "Tap <b>Spacebar</b> or <b>Click</b> to jump.<br>Pipes se bach ke rehna!<br> <b>P</b> dabake pause kar sakta hei.";
+  
+  modal.style.display = 'flex';
+}
+
+function showAbout() {
+  const modal = document.getElementById('modalOverlay');
+  const title = document.getElementById('modalTitle');
+  const text = document.getElementById('modalText');
+
+  title.innerText = "About";
+  text.innerText = "Tota Urr - Made by TIRTHA.\nVersion 1.0";
+  
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').style.display = 'none';
+}
+
+// --- GAME LOGIC ---
 
 function drawTota() {
   if (!totaImg.complete) return;
@@ -70,7 +114,7 @@ function detectCollision() {
       tota.x + tota.radius > pipe.x &&
       tota.x - tota.radius < pipe.x + pipe.width &&
       (tota.y - tota.radius < pipe.top ||
-       tota.y + tota.radius > canvas.height - pipe.bottom)
+        tota.y + tota.radius > canvas.height - pipe.bottom)
     ) {
       gameOver = true;
     }
@@ -94,10 +138,10 @@ function saveHighScore(newScore) {
 }
 
 function drawGameOverScreen() {
-  try { 
+  try {
     const bgm = document.getElementById('bgm');
-    bgm.pause(); 
-    bgm.currentTime = 0; 
+    bgm.pause();
+    bgm.currentTime = 0;
   } catch(e){}
 
   try {
@@ -208,10 +252,13 @@ document.addEventListener("keydown", e => {
   if (e.code === "KeyP") togglePause();
 });
 
-canvas.addEventListener("click", e => {
+document.addEventListener("click", e => {
+    // Ignore clicks if clicking on the lobby buttons or modal
+  if (e.target.closest('#lobby') || e.target.closest('#modalOverlay')) return;
   const rect = canvas.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   const clickY = e.clientY - rect.top;
+
   if (clickX > canvas.width - 50 && clickY < 50) togglePause();
   else jump();
 });
