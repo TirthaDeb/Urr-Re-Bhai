@@ -278,4 +278,3 @@ function startGame() {
 
   resetGame();
 }
-
