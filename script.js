@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-let tota = { x: 80, y: 200, radius: 15, gravity: 0.4, lift: -8, velocity: 0, width: 50, height: 50 };
+let tota = { x: 80, y: 200, radius: 15, gravity: 0.4, lift: -7, velocity: 0, width: 50, height: 50 };
 let pipes = [];
 let frame = 0;
 let score = 0;
@@ -278,7 +278,3 @@ function startGame() {
 
   resetGame();
 }
-
-
-
-
