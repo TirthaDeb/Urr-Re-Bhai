@@ -9,7 +9,7 @@ body {
 canvas {
     display: block;
     margin: 0 auto;
-    background: url('./Public/game_background_deepblue_400x500.png') no-repeat center center;
+    background: url('./public/game_background_deepblue_400x500.png') no-repeat center center;
     background-size: cover;
     border: 4px solid #000;
     border-radius: 10px;
