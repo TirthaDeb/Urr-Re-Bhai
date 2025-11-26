@@ -263,6 +263,18 @@ document.addEventListener("click", e => {
   else jump();
 });
 
+// 🔹 SUPPORT ME BUTTON — UPI LINK
+window.onload = function () {
+    const supportBtn = document.getElementById("supportBtn");
+
+    if (supportBtn) {
+        supportBtn.onclick = function () {
+            window.location.href =
+              "upi://pay?pa=8974558665@okbizaxis&pn=Support&cu=INR";
+        };
+    }
+};
+
 update();
 
 function startGame() {
