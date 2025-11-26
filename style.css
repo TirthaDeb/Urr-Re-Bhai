@@ -20,6 +20,32 @@ canvas {
 #title { text-align: center; font-size: 40px; color: #fff; margin-top: 10px; text-shadow: 2px 2px 5px #000; }
 
 /* LOBBY OVERLAY */
+
+#lobby {
+    position: relative;
+}
+
+#supportBtn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+
+    padding: 12px 30px;
+    font-size: 20px;
+    background-color: rgb(191, 187, 186);
+    border: 3px solid #000;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+}
+
+#supportBtn:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+
 #lobby {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-color: #ccc; color: #000;
@@ -30,19 +56,36 @@ canvas {
 #lobby h1 { font-size: 35px; margin-bottom: 15px; }
 #lobby h2 { font-size: 25px; margin-bottom: 40px; }
 
-/* Main Start Button */
-#startButton {
-    font-size: 22px; padding: 12px 30px; 
-    background-color: #fff; color: #000;
-    border: 3px solid #000; border-radius: 8px; 
-    cursor: pointer; transition: 0.3s;
-    margin-bottom: 20px;
-    font-weight: bold;
+/* Unified Button Style */
+button,
+#startButton,
+.sub-btn {
+    padding: 12px 30px;
+    font-size: 20px;
+    background-color: rgb(191, 187, 186);
+    border: 3px solid #000;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
 }
 
-#startButton:hover { background-color: #797979; }
+/* Start Button — optional small size bump */
+#startButton {
+    font-size: 25px;
+    font-weight: bold;
+    transform: scale(1);
+    margin-bottom: 10px;
+}
 
-/* Sub Buttons Container */
+/* Hover effect for both start + sub buttons */
+#startButton:hover,
+.sub-btn:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+/* Container for sub-buttons */
 .button-group {
     display: flex;
     flex-direction: column;
@@ -50,24 +93,8 @@ canvas {
     width: 200px;
 }
 
-/* Translucent Buttons */
-.sub-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.4); /* Translucent */
-    border: 2px solid #000;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    font-weight: 600;
-}
 
-.sub-btn:hover {
-    background-color: rgba(255, 255, 255, 1); /* Solid on hover */
-    transform: scale(1.05);
-}
-
-#credit { position: absolute; bottom: 20px; font-size: 18px; }
+#credit { position: absolute; bottom: 60px; font-size: 18px; }
 
 /* --- POPUP MODAL (For Score, Help, About) --- */
 #modalOverlay {
